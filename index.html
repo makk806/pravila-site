@@ -1,18 +1,48 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Правила Discord-сервера</title>
+  <title>Discord Панель и Правила</title>
   <style>
     body {
       background-color: #1e1e2f;
       color: #f0f0f0;
       font-family: 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      padding: 40px;
       margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #29294d;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      color: #ff5555;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #33334d;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 14px 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    nav button:hover {
+      background-color: #44445d;
+    }
+    .tab {
+      display: none;
+      padding: 20px;
+    }
+    .active {
+      display: block;
     }
     .container {
       max-width: 800px;
@@ -22,21 +52,36 @@
       padding: 30px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
-    h1 {
+    h2, h1 {
       text-align: center;
-      color: #ff4c4c;
-      margin-bottom: 20px;
     }
-    p {
-      font-size: 18px;
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: auto;
     }
-    .signature {
-      margin-top: 30px;
-      font-style: italic;
-      color: #aaa;
+    input, textarea {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 4px;
+      border: none;
     }
-    .highlight {
-      color: #00bcd4;
+    button.submit-btn {
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button.submit-btn:hover {
+      background-color: #0097a7;
+    }
+    .message {
+      text-align: center;
+      margin-top: 10px;
+      color: lightgreen;
     }
     ol {
       font-size: 18px;
@@ -46,14 +91,36 @@
     li {
       margin-bottom: 8px;
     }
+    .highlight {
+      color: #00bcd4;
+    }
     .notice {
       margin-top: 20px;
       font-size: 17px;
       color: #ffcc00;
+      text-align: center;
+    }
+    .signature {
+      margin-top: 30px;
+      font-style: italic;
+      color: #aaa;
+      text-align: center;
     }
   </style>
 </head>
 <body>
+
+<header>
+  <h1>Добро пожаловать на Discord сервер</h1>
+</header>
+
+<nav>
+  <button onclick="openTab('rules')">📜 Правила</button>
+  <button onclick="openTab('admin')">🛡️ Заявка на Админа</button>
+  <button onclick="openTab('complaint')">🚨 Жалоба</button>
+</nav>
+
+<div id="rules" class="tab active">
   <div class="container">
     <h1>📜 ПРАВИЛА</h1>
     <p>Здравствуйте, дорогие участники нашего Discord-сервера!</p>
@@ -82,5 +149,68 @@
       <strong>Высшая администрация</strong>
     </p>
   </div>
+</div>
+
+<div id="admin" class="tab">
+  <h2>🛡️ Заявка на администратора</h2>
+  <form onsubmit="submitForm(event, 'admin')">
+    <input type="text" name="name" placeholder="Ваше имя" required />
+    <input type="text" name="discord" placeholder="Ник в Discord" required />
+    <input type="number" name="age" placeholder="Сколько лет?" required />
+    <textarea name="reason" placeholder="Почему хотите стать админом?" required></textarea>
+    <button type="submit" class="submit-btn">Отправить</button>
+  </form>
+  <div class="message" id="msg-admin"></div>
+</div>
+
+<div id="complaint" class="tab">
+  <h2>🚨 Оставить жалобу</h2>
+  <form onsubmit="submitForm(event, 'complaint')">
+    <input type="text" name="player" placeholder="Ник игрока" required />
+    <input type="text" name="admin" placeholder="Ник администратора" required />
+    <input type="text" name="screenshot" placeholder="Ссылка на скриншот (если есть)" />
+    <textarea name="message" placeholder="Опишите жалобу" required></textarea>
+    <button type="submit" class="submit-btn">Отправить</button>
+  </form>
+  <div class="message" id="msg-complaint"></div>
+</div>
+
+<script>
+  function openTab(tabId) {
+    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+  }
+
+  function submitForm(event, type) {
+    event.preventDefault();
+    const form = event.target;
+    const data = new FormData(form);
+    let content = "";
+
+    if (type === 'admin') {
+      content = `🛡️ **Заявка на админа**\nИмя: ${data.get("name")}\nDiscord: ${data.get("discord")}\nВозраст: ${data.get("age")}\nПричина: ${data.get("reason")}`;
+    } else if (type === 'complaint') {
+      content = `🚨 **Жалоба**\nИгрок: ${data.get("player")}\nАдмин: ${data.get("admin")}\nСкриншот: ${data.get("screenshot")}\nСообщение: ${data.get("message")}`;
+    }
+
+    const webhookURL = "https://discord.com/api/webhooks/1402533879474159707/JEaQQCl2QNZy3-JX-GLPsskLY4JBtdqxVsfFiTzYwAJp-2N97_3nDhs5JH_Om7aljT3O";
+
+    fetch(webhookURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ content })
+    })
+    .then(() => {
+      document.getElementById(`msg-${type}`).innerText = "✅ Отправлено!";
+      form.reset();
+    })
+    .catch(() => {
+      document.getElementById(`msg-${type}`).innerText = "❌ Ошибка отправки.";
+    });
+  }
+</script>
+
 </body>
 </html>
