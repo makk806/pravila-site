@@ -155,64 +155,13 @@
 
 <div id="admin" class="tab">
   <h2>🛡️ Заявка на администратора</h2>
-  <form onsubmit="submitForm(event, 'admin')">
-    <input type="text" name="name" placeholder="Ваше имя" required />
-    <input type="text" name="discord" placeholder="Ник в Discord" required />
-    <input type="number" name="age" placeholder="Сколько лет?" required />
-    <textarea name="reason" placeholder="Почему хотите стать админом?" required></textarea>
-    <button type="submit" class="submit-btn">Отправить</button>
-  </form>
-  <div class="message" id="msg-admin"></div>
-</div>
+  
 
 <div id="complaint" class="tab">
   <h2>🚨 Оставить жалобу</h2>
-  <form onsubmit="submitForm(event, 'complaint')">
-    <input type="text" name="player" placeholder="Ник игрока" required />
-    <input type="text" name="admin" placeholder="Ник администратора" required />
-    <input type="text" name="screenshot" placeholder="Ссылка на скриншот (если есть)" />
-    <textarea name="message" placeholder="Опишите жалобу" required></textarea>
-    <button type="submit" class="submit-btn">Отправить</button>
-  </form>
-  <div class="message" id="msg-complaint"></div>
-</div>
+ >
 
-<script>
-  function openTab(tabId) {
-    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-    document.getElementById(tabId).classList.add('active');
-  }
 
-  function submitForm(event, type) {
-    event.preventDefault();
-    const form = event.target;
-    const data = new FormData(form);
-    let content = "";
-
-    if (type === 'admin') {
-      content = `🛡️ **Заявка на админа**\nИмя: ${data.get("name")}\nDiscord: ${data.get("discord")}\nВозраст: ${data.get("age")}\nПричина: ${data.get("reason")}`;
-    } else if (type === 'complaint') {
-      content = `🚨 **Жалоба**\nИгрок: ${data.get("player")}\nАдмин: ${data.get("admin")}\nСкриншот: ${data.get("screenshot")}\nСообщение: ${data.get("message")}`;
-    }
-
-    const webhookURL = "https://discord.com/api/webhooks/1402602082556706888/pqv0BwViSgZfpMbYUm1MwUordlWef71cZ6BmW8AGQTPuSVsXXw7cDWnKMFh3HVc4LhvL";
-
-    fetch(webhookURL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ content })
-    })
-    .then(() => {
-      document.getElementById(`msg-${type}`).innerText = "✅ Отправлено!";
-      form.reset();
-    })
-    .catch(() => {
-      document.getElementById(`msg-${type}`).innerText = "❌ Ошибка отправки.";
-    });
-  }
-</script>
 
 </body>
 </html>
