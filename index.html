@@ -5,93 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sword Dungeon Piece 😈 Panel & Rules</title>
   <style>
-    body {
-      background-color: #1e1e2f;
-      color: #f0f0f0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #29294d;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      color: #ff5555;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    .lang-switcher {
-      margin-top: 15px;
-    }
-    select {
-      padding: 5px 10px;
-      border-radius: 5px;
-      background: #33334d;
-      color: white;
-      border: 1px solid #ff5555;
-      cursor: pointer;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #33334d;
-      border-bottom: 2px solid #ff5555;
-    }
-    nav button {
-      background: none;
-      border: none;
-      color: white;
-      padding: 14px 20px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-    nav button:hover {
-      background-color: #44445d;
-      color: #ff5555;
-    }
-    .tab {
-      display: none;
-      padding: 20px;
-    }
-    .active {
-      display: block;
-    }
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      background-color: #2a2a3d;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-    h2, h1 {
-      text-align: center;
-    }
-    ol, ul {
-      font-size: 18px;
-      line-height: 1.8;
-    }
-    .highlight {
-      color: #00bcd4;
-    }
-    .notice {
-      margin-top: 20px;
-      font-size: 17px;
-      color: #ffcc00;
-      text-align: center;
-      border: 1px dashed #ffcc00;
-      padding: 15px;
-      background: rgba(255, 204, 0, 0.1);
-    }
-    .signature {
-      margin-top: 30px;
-      font-style: italic;
-      color: #aaa;
-      text-align: center;
-    }
+    body { background-color: #1e1e2f; color: #f0f0f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #29294d; padding: 20px; text-align: center; border-bottom: 2px solid #ff5555; }
+    header h1 { margin: 0; color: #ff5555; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    .lang-switcher { margin-top: 15px; }
+    select { padding: 5px 10px; border-radius: 5px; background: #33334d; color: white; border: 1px solid #ff5555; cursor: pointer; }
+    nav { display: flex; justify-content: center; background-color: #33334d; }
+    nav button { background: none; border: none; color: white; padding: 14px 20px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+    nav button:hover { background-color: #44445d; color: #ff5555; }
+    .tab { display: none; padding: 20px; }
+    .active { display: block; }
+    .container { max-width: 800px; margin: 20px auto; background-color: #2a2a3d; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+    h2, h1 { text-align: center; }
+    ol, ul { font-size: 18px; line-height: 1.8; }
+    .highlight { color: #00bcd4; }
+    .notice { margin-top: 20px; font-size: 17px; color: #ffcc00; text-align: center; border: 1px dashed #ffcc00; padding: 15px; background: rgba(255, 204, 0, 0.1); }
+    .signature { margin-top: 30px; font-style: italic; color: #aaa; text-align: center; }
   </style>
 </head>
 <body>
@@ -101,72 +30,37 @@
   <div class="lang-switcher">
     <label for="lang-select">🌐 Language: </label>
     <select id="lang-select" onchange="changeLanguage(this.value)">
-      <option value="en">English</option>
       <option value="ru">Русский</option>
+      <option value="en">English</option>
       <option value="de">Deutsch</option>
-      <option value="zh">中文</option>
-      <option value="ja">日本語</option>
-      <option value="fr">Français</option>
-      <option value="it">Italiano</option>
     </select>
   </div>
 </header>
 
 <nav>
-  <button onclick="openTab('rules')" id="nav-rules">📜 Rules</button>
-  <button onclick="openTab('moderator')" id="nav-mod">👮‍♂️ Become a Moderator</button>
+  <button onclick="openTab('rules')" id="nav-rules">📜 Правила</button>
+  <button onclick="openTab('moderator')" id="nav-mod">👮‍♂️ Стать модератором</button>
 </nav>
 
 <div id="rules" class="tab active">
   <div class="container">
-    <h1 id="rules-title">📜 RULES</h1>
-    <p id="rules-intro">Hello, brave warriors of Sword Dungeon Piece!</p>
-    <p id="rules-desc">This section is <span class="highlight">one of the most important</span>. Rules apply to <strong>both staff and members</strong> to ensure a fair game and community.</p>
-    
-    <ol id="rules-list">
-      <li>1.1 Spam — 3h mute</li>
-      <li>1.2 Encouraging spam — 4h mute for all</li>
-      <li>1.3 Scam — permanent ban</li>
-      <li>1.4 Insulting staff — 5 days mute</li>
-      <li>1.5 Insulting staff's family — 10 days mute</li>
-      <li>1.6 Politics — permanent ban</li>
-      <li>1.7 Swearing — 3h mute</li>
-      <li>1.8 18+ Content — permanent ban</li>
-      <li>1.9 Drama/Fighting — 1h mute</li>
-      <li>2.0 Mod age requirement — 13+ years</li>
-      <li>2.1 Application limit — once per month</li>
-      <li>2.2 Ghost pinging — 5m mute (repeat: 2h)</li>
-    </ol>
-
-    <div class="notice" id="rules-notice">
-      ⚠️ Resolve personal disputes in DMs. Don't disrupt the dungeon atmosphere.
-    </div>
-    <p class="signature" id="signature">Regards,<br><strong>High Administration</strong></p>
+    <h1 id="rules-title">📜 ПРАВИЛА</h1>
+    <p id="rules-intro"></p>
+    <p id="rules-desc"></p>
+    <div id="rules-list-container"></div>
+    <div class="notice" id="rules-notice"></div>
+    <p class="signature" id="signature"></p>
   </div>
 </div>
 
 <div id="moderator" class="tab">
   <div class="container">
-    <h1 id="mod-title">👮‍♂️ How to become a Moderator?</h1>
-    <p id="mod-intro">We are glad you want to join the Sword Dungeon Piece team. You will start as an Officer.</p>
-    <p><strong id="mod-req-title">Requirements:</strong></p>
-    <ul id="mod-req-list">
-      <li>Age: 13+ (or turning 13 within 3 weeks).</li>
-      <li>Account age: At least 1 year.</li>
-      <li>Server stay: At least 1 week.</li>
-      <li>Knowledge of rules is mandatory.</li>
-      <li>Stay calm and polite under pressure.</li>
-    </ul>
-    <h2 id="mod-rules-header">📌 Rules for Moderators:</h2>
-    <ul id="mod-rules-list">
-      <li>1.1 Be respectful to players.</li>
-      <li>1.2 No swearing in official chats.</li>
-      <li>1.3 Stay out of conflicts.</li>
-      <li>1.4 No bribes (instant ban).</li>
-      <li>1.5 Do not abuse powers.</li>
-      <li>1.6 Use format: /timeout [user] [time] [reason].</li>
-      <li>1.7 You have 3 lives (warnings).</li>
-    </ul>
+    <h1 id="mod-title"></h1>
+    <p id="mod-intro"></p>
+    <p><strong id="mod-req-title"></strong></p>
+    <div id="mod-req-list"></div>
+    <h2 id="mod-rules-header"></h2>
+    <div id="mod-rules-list"></div>
   </div>
 </div>
 
@@ -178,97 +72,120 @@
   }
 
   const translations = {
-    en: {
-      mainTitle: "Welcome to Sword Dungeon Piece 😈",
-      navRules: "📜 Rules",
-      navMod: "👮‍♂️ Become a Moderator",
-      rulesTitle: "📜 RULES",
-      rulesIntro: "Hello, brave warriors of Sword Dungeon Piece!",
-      rulesDesc: "This section is one of the most important. Rules apply to both staff and members.",
-      rulesNotice: "⚠️ Resolve personal disputes in DMs. Don't disrupt the dungeon atmosphere.",
-      modTitle: "👮‍♂️ How to become a Moderator?",
-      signature: "Regards,<br><strong>High Administration</strong>"
-    },
     ru: {
       mainTitle: "Добро пожаловать в Sword Dungeon Piece 😈",
       navRules: "📜 Правила",
       navMod: "👮‍♂️ Стать модератором",
       rulesTitle: "📜 ПРАВИЛА",
       rulesIntro: "Приветствуем, храбрые воины Sword Dungeon Piece!",
-      rulesDesc: "Этот раздел — один из самых важных. Правила обязательны для всех участников и администрации.",
+      rulesDesc: "Этот раздел — один из самых важных. Правила обязательны для всех участников.",
+      rulesList: `
+        <ol>
+          <li>1.1 Флуд — мут 3 часа</li>
+          <li>1.2 Подговор к флуду — мут всем на 4 часа</li>
+          <li>1.3 Скам — бан навсегда</li>
+          <li>1.4 Оскорбление админов — мут 5 дней</li>
+          <li>1.5 Оскорбление родных админов — мут 10 дней</li>
+          <li>1.6 Политика — бан навсегда</li>
+          <li>1.7 Мат — мут 3 часа</li>
+          <li>1.8 Контент 18+ — бан навсегда</li>
+          <li>1.9 Драки/Разборки — мут 1 час</li>
+          <li>2.0 Возраст модератора — 13+ лет</li>
+          <li>2.1 Заявка — раз в месяц</li>
+          <li>2.2 Пинг без причины — мут 5 мин (повтор: 2 часа)</li>
+        </ol>`,
       rulesNotice: "⚠️ Споры решайте в ЛС. Не портьте атмосферу подземелья.",
+      signature: "С уважением,<br><strong>Высшая администрация</strong>",
       modTitle: "👮‍♂️ Как стать модератором?",
-      signature: "С уважением,<br><strong>Высшая администрация</strong>"
+      modIntro: "Мы рады, что вы решили вступить в команду. Вы начнете с ранга Офицер.",
+      modReqTitle: "Требования:",
+      modReqList: `<ul>
+          <li>Возраст: 13+ (или 13 через 3 недели).</li>
+          <li>Аккаунту: больше 1 года.</li>
+          <li>На сервере: от 1 недели.</li>
+          <li>Знание правил обязательно.</li>
+          <li>Спокойствие при провокациях.</li>
+        </ul>`,
+      modRulesHeader: "📌 Правила для модераторов:",
+      modRulesList: `<ul>
+          <li>1.1 Будьте вежливы с игроками.</li>
+          <li>1.2 Без мата в чатах.</li>
+          <li>1.3 Не вступайте в конфликты.</li>
+          <li>1.4 Взятки — бан навсегда.</li>
+          <li>1.5 Не злоупотребляйте правами.</li>
+          <li>1.6 Формат: /timeout [имя] [время] [причина].</li>
+          <li>1.7 У вас есть 3 жизни (варна).</li>
+        </ul>`
     },
-    de: {
-      mainTitle: "Willkommen bei Sword Dungeon Piece 😈",
-      navRules: "📜 Regeln",
-      navMod: "👮‍♂️ Moderator werden",
-      rulesTitle: "📜 REGELN",
-      rulesIntro: "Hallo, tapfere Krieger von Sword Dungeon Piece!",
-      rulesDesc: "Dieser Abschnitt ist einer der wichtigsten. Die Regeln gelten für alle.",
-      rulesNotice: "⚠️ Klären Sie Streitigkeiten privat. Stören Sie nicht die Dungeon-Atmosphäre.",
-      modTitle: "👮‍♂️ Wie werde ich Moderator?",
-      signature: "Mit freundlichen Grüßen,<br><strong>Hohe Administration</strong>"
-    },
-    zh: {
-      mainTitle: "欢迎来到 Sword Dungeon Piece 😈",
-      navRules: "📜 规则",
-      navMod: "👮‍♂️ 成为版主",
-      rulesTitle: "📜 规则",
-      rulesIntro: "你好，Sword Dungeon Piece 勇敢的战士们！",
-      rulesDesc: "这一部分是最重要的之一。规则适用于所有成员。",
-      rulesNotice: "⚠️ 在私信中解决争议。不要破坏地牢气氛。",
-      modTitle: "👮‍♂️ 如何成为版主？",
-      signature: "谨致问候，<br><strong>高级管理层</strong>"
-    },
-    ja: {
-      mainTitle: "Sword Dungeon Piece 😈 へようこそ",
-      navRules: "📜 ルール",
-      navMod: "👮‍♂️ モデレーターになる",
-      rulesTitle: "📜 ルール",
-      rulesIntro: "こんにちは、Sword Dungeon Piece の勇敢な戦士の皆さん！",
-      rulesDesc: "このセクションは最も重要なセクションの1つです。",
-      rulesNotice: "⚠️ 個人的な争いはDMで解決してください。ダンジョンの雰囲気を壊さないでください。",
-      modTitle: "👮‍♂️ モデレーターになるには？",
-      signature: "よろしくお願いいたします。<br><strong>最高管理者</strong>"
-    },
-    fr: {
-      mainTitle: "Bienvenue sur Sword Dungeon Piece 😈",
-      navRules: "📜 Règles",
-      navMod: "👮‍♂️ Devenir modérateur",
-      rulesTitle: "📜 RÈGLES",
-      rulesIntro: "Bonjour, braves guerriers de Sword Dungeon Piece !",
-      rulesDesc: "Cette section est l'une des plus importantes.",
-      rulesNotice: "⚠️ Réglez vos différends en privé. Ne perturbez pas l'ambiance du donjon.",
-      modTitle: "👮‍♂️ Comment devenir modérateur ?",
-      signature: "Cordialement,<br><strong>Haute Administration</strong>"
-    },
-    it: {
-      mainTitle: "Benvenuti su Sword Dungeon Piece 😈",
-      navRules: "📜 Regole",
-      navMod: "👮‍♂️ Diventa moderatore",
-      rulesTitle: "📜 REGOLE",
-      rulesIntro: "Ciao, coraggiosi guerrieri di Sword Dungeon Piece!",
-      rulesDesc: "Questa sezione è una delle più importanti.",
-      rulesNotice: "⚠️ Risolvi le controversie in privato. Non disturbare l'atmosfera del dungeon.",
-      modTitle: "👮‍♂️ Come diventare moderatore ?",
-      signature: "Cordiali saluti,<br><strong>Alta Amministrazione</strong>"
+    en: {
+      mainTitle: "Welcome to Sword Dungeon Piece 😈",
+      navRules: "📜 Rules",
+      navMod: "👮‍♂️ Become a Moderator",
+      rulesTitle: "📜 RULES",
+      rulesIntro: "Hello, brave warriors of Sword Dungeon Piece!",
+      rulesDesc: "This section is one of the most important. Rules apply to everyone.",
+      rulesList: `
+        <ol>
+          <li>1.1 Spam — 3h mute</li>
+          <li>1.2 Encouraging spam — 4h mute for all</li>
+          <li>1.3 Scam — permanent ban</li>
+          <li>1.4 Insulting staff — 5 days mute</li>
+          <li>1.5 Insulting staff's family — 10 days mute</li>
+          <li>1.6 Politics — permanent ban</li>
+          <li>1.7 Swearing — 3h mute</li>
+          <li>1.8 18+ Content — permanent ban</li>
+          <li>1.9 Drama/Fighting — 1h mute</li>
+          <li>2.0 Mod age requirement — 13+ years</li>
+          <li>2.1 Application limit — once per month</li>
+          <li>2.2 Ghost pinging — 5m mute (repeat: 2h)</li>
+        </ol>`,
+      rulesNotice: "⚠️ Resolve personal disputes in DMs. Don't disrupt the dungeon atmosphere.",
+      signature: "Regards,<br><strong>High Administration</strong>",
+      modTitle: "👮‍♂️ How to become a Moderator?",
+      modIntro: "We are glad you want to join the team. You will start as an Officer.",
+      modReqTitle: "Requirements:",
+      modReqList: `<ul>
+          <li>Age: 13+ (or turning 13 within 3 weeks).</li>
+          <li>Account age: At least 1 year.</li>
+          <li>Server stay: At least 1 week.</li>
+          <li>Knowledge of rules is mandatory.</li>
+          <li>Stay calm and polite under pressure.</li>
+        </ul>`,
+      modRulesHeader: "📌 Rules for Moderators:",
+      modRulesList: `<ul>
+          <li>1.1 Be respectful to players.</li>
+          <li>1.2 No swearing in official chats.</li>
+          <li>1.3 Stay out of conflicts.</li>
+          <li>1.4 No bribes (instant ban).</li>
+          <li>1.5 Do not abuse powers.</li>
+          <li>1.6 Use format: /timeout [user] [time] [reason].</li>
+          <li>1.7 You have 3 lives (warnings).</li>
+        </ul>`
     }
   };
 
   function changeLanguage(lang) {
-    const t = translations[lang];
+    const t = translations[lang] || translations['en'];
     document.getElementById('main-title').innerText = t.mainTitle;
     document.getElementById('nav-rules').innerText = t.navRules;
     document.getElementById('nav-mod').innerText = t.navMod;
     document.getElementById('rules-title').innerText = t.rulesTitle;
     document.getElementById('rules-intro').innerText = t.rulesIntro;
     document.getElementById('rules-desc').innerHTML = t.rulesDesc;
+    document.getElementById('rules-list-container').innerHTML = t.rulesList;
     document.getElementById('rules-notice').innerText = t.rulesNotice;
-    document.getElementById('mod-title').innerText = t.modTitle;
     document.getElementById('signature').innerHTML = t.signature;
+    
+    document.getElementById('mod-title').innerText = t.modTitle;
+    document.getElementById('mod-intro').innerText = t.modIntro;
+    document.getElementById('mod-req-title').innerText = t.modReqTitle;
+    document.getElementById('mod-req-list').innerHTML = t.modReqList;
+    document.getElementById('mod-rules-header').innerText = t.modRulesHeader;
+    document.getElementById('mod-rules-list').innerHTML = t.modRulesList;
   }
+
+  // Устанавливаем русский язык при загрузке
+  window.onload = () => changeLanguage('ru');
 </script>
 
 </body>
